@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour
@@ -20,6 +21,15 @@ public class GameController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !inGame)
         {
             inGame = true;
+        }
+
+        if (isGameClear || isGameOver)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Scene loadScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(loadScene.name);
+            }
         }
     }
 }
