@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Obi;
 
-public class RopeController : MonoBehaviour
+public class Rope : MonoBehaviour
 {
 
     public ObiSolver solver;
@@ -161,7 +161,11 @@ public class RopeController : MonoBehaviour
 
         if (gameController.isGameOver && rope.isLoaded)
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+        else if (gameController.isGameClear && rope.isLoaded)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
