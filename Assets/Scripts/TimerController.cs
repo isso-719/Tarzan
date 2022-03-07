@@ -5,22 +5,26 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
+    public GameController gameController;
+
     Text timerText;
     float time;
-
-    public bool isCountTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
         timerText = GetComponent<Text>();
+        timerText.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCountTimer)
+        if (Input.GetMouseButton(0) && !gameController.inGame)
+            timerText.enabled = true;
+
+        if (gameController.inGame)
         {
             time += Time.deltaTime;
             int min = (int)time / 60;

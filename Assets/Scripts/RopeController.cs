@@ -18,6 +18,8 @@ public class RopeController : MonoBehaviour
     public float hookShootSpeed = 30;
     public int particlePoolSize = 100;
 
+    public GameController gameController;
+
     private ObiRope rope;
     private ObiRopeBlueprint blueprint;
     private ObiRopeExtrudedRenderer ropeRenderer;
@@ -88,7 +90,6 @@ public class RopeController : MonoBehaviour
         
         rope.ropeBlueprint = blueprint;
 
-        // wait one frame:
         yield return null;
 
         rope.GetComponent<MeshRenderer>().enabled = true;
@@ -150,12 +151,17 @@ public class RopeController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameController.inGame)
         {
             if (!rope.isLoaded)
                 LaunchHook();
             else
                 DetachHook();
+        }
+
+        if (gameController.isGameOver && rope.isLoaded)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }
