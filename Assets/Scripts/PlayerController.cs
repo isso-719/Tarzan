@@ -13,14 +13,35 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -10f)
+        {
+            GameOver();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("Game Over");
+            GameOver();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Goal")
+        {
+            GameClear();
+        }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over");
+    }
+
+    void GameClear()
+    {
+        Debug.Log("Goal!");
     }
 }
