@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Obi;
 
-public class ExtendableGrapplingHook : MonoBehaviour
+public class RopeController : MonoBehaviour
 {
 
     public ObiSolver solver;
