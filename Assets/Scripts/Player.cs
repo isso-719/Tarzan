@@ -7,17 +7,26 @@ public class Player : MonoBehaviour
     public GameController gameController;
     Rigidbody playerRigidbody;
 
+    public GameObject playerRig;
+    Animator playerAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
+
+        playerAnimator = playerRig.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gameController.inGame)
+        {
             playerRigidbody.useGravity = true;
+            playerAnimator.SetBool("inGame", true);
+        }
 
         if (transform.position.y < -10f) GameOver();
     }
@@ -36,6 +45,8 @@ public class Player : MonoBehaviour
     {
         gameController.inGame = false;
         gameController.isGameOver = true;
+        playerAnimator.SetBool("inGame", false);
+        playerAnimator.SetInteger("gameState", 1);
         Debug.Log("Game Over");
     }
 
@@ -43,6 +54,8 @@ public class Player : MonoBehaviour
     {
         gameController.inGame = false;
         gameController.isGameClear = true;
+        playerAnimator.SetBool("inGame", false);
+        playerAnimator.SetInteger("gameState", 2);
         Debug.Log("Goal!");
     }
 }
