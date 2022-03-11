@@ -28,6 +28,8 @@ public class Rope : MonoBehaviour
 
     private RaycastHit hookAttachment;
 
+    private AudioSource ropeThrow;
+
     void Awake()
     {
         rope = gameObject.AddComponent<ObiRope>();
@@ -47,6 +49,8 @@ public class Rope : MonoBehaviour
         cursor = rope.gameObject.AddComponent<ObiRopeCursor>();
         cursor.cursorMu = 0;
         cursor.direction = true;
+
+        ropeThrow = GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -154,7 +158,11 @@ public class Rope : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && gameController.inGame)
         {
             if (!rope.isLoaded)
+            {
                 LaunchHook();
+                //ropeThrow.Play();
+            }
+
             else
                 DetachHook();
         }
