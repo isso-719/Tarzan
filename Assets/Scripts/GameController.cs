@@ -22,14 +22,16 @@ public class GameController : MonoBehaviour
         {
             inGame = true;
         }
+    }
 
-        if (isGameClear || isGameOver)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                Scene loadScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(loadScene.name);
-            }
-        }
+    public void Retry()
+    {
+        Scene loadScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadScene.name);
+    }
+
+    public void ReturnToTitle()
+    {
+        SceneManager.LoadScene("Main");
     }
 }

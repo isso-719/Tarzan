@@ -7,8 +7,8 @@ public class UIController : MonoBehaviour
 {
     public GameController gameController;
     public Text clickToStartText;
-    public Text gameOverText;
-    public Text gameClearText;
+    public GameObject gameOverUI;
+    public GameObject gameClearUI;
 
 
     // Start is called before the first frame update
@@ -24,9 +24,9 @@ public class UIController : MonoBehaviour
             clickToStartText.enabled = false;
 
         if (gameController.isGameOver)
-            gameOverText.enabled = true;
+            gameOverUI.SetActive(true);
 
         if (gameController.isGameClear)
-            gameClearText.enabled = true;
+            gameClearUI.SetActive(true);
     }
 }
