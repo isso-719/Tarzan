@@ -11,7 +11,7 @@ public class TitleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,5 +27,11 @@ public class TitleController : MonoBehaviour
     public void SelectStage(int stageNum)
     {
         SceneManager.LoadScene("Stage" + stageNum);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Exit");
     }
 }
