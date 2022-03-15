@@ -2593,6 +2593,7 @@ GameObject:
   - component: {fileID: 686731131}
   - component: {fileID: 686731130}
   - component: {fileID: 686731129}
+  - component: {fileID: 686731132}
   m_Layer: 0
   m_Name: GameOverCollider
   m_TagString: Obstacle
@@ -2676,6 +2677,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686731127}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &686731132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686731127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 686731129}
+  m_DistanceField: {fileID: 0}
 --- !u!1001 &715304736
 PrefabInstance:
   m_ObjectHideFlags: 0
