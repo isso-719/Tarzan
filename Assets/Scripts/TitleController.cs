@@ -29,6 +29,11 @@ public class TitleController : MonoBehaviour
         SceneManager.LoadScene("Stage" + stageNum);
     }
 
+    public void GoToTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void Exit()
     {
         Application.Quit();
