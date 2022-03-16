@@ -30,6 +30,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(loadScene.name);
     }
 
+    public void GoToNext(int nextNum)
+    {
+        SceneManager.LoadScene("Stage" + nextNum);
+    }
+
     public void ReturnToTitle()
     {
         SceneManager.LoadScene("Main");
